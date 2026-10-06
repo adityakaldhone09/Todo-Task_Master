@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, CheckCircle, Trophy, TrendingUp, Calendar } from 'lucide-react';
+import { Flame, CheckCircle, Trophy, TrendingUp } from 'lucide-react';
 
 export default function ProductivityChart({ productivity, completionRate }) {
   const { completedToday, completedThisWeek, streak, weeklyActivity = [] } = productivity;

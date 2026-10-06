@@ -11,10 +11,8 @@ import {
   Sun,
   Moon,
   Sparkles,
-  Database,
   RotateCcw,
 } from 'lucide-react';
-import { getCategoryIcon } from '../../utils/categoryIcons';
 import { isToday } from '../../utils/dateUtils';
 
 export default function Sidebar({

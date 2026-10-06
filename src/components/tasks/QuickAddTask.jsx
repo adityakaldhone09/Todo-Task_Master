@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Calendar, Flag, Sparkles } from 'lucide-react';
+import { Plus, Sparkles } from 'lucide-react';
 import { PRIORITIES } from '../../utils/constants';
 import { getTodayDateString } from '../../utils/dateUtils';
 

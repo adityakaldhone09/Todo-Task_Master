@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useOutletContext, Link } from 'react-router-dom';
 import { useTasks } from '../hooks/useTasks';
 import StatCard from '../components/dashboard/StatCard';
@@ -42,8 +42,10 @@ export default function Dashboard() {
     .slice(0, 3);
 
   // Greeting based on time of day
-  const hour = new Date().getHours();
-  const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const greeting = useMemo(() => {
+    const hour = new Date().getHours();
+    return hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  }, []);
 
   return (
     <div className="space-y-8 animate-fade-in pb-12">

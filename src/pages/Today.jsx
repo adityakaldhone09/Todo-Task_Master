@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import { useTasks } from '../hooks/useTasks';
 import TaskCard from '../components/tasks/TaskCard';
 import EmptyState from '../components/common/EmptyState';
-import { isToday, isOverdue, getTodayDateString } from '../utils/dateUtils';
+import { isOverdue, getTodayDateString } from '../utils/dateUtils';
 import { AlertTriangle, Calendar, CheckCircle2 } from 'lucide-react';
 
 export default function Today() {

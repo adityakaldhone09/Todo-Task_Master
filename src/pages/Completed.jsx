@@ -4,7 +4,7 @@ import { useTasks } from '../hooks/useTasks';
 import TaskCard from '../components/tasks/TaskCard';
 import EmptyState from '../components/common/EmptyState';
 import ConfirmDialog from '../components/common/ConfirmDialog';
-import { CheckCircle2, Trash2, RotateCcw } from 'lucide-react';
+import { CheckCircle2, Trash2 } from 'lucide-react';
 
 export default function Completed() {
   const { tasks, toggleTask, restoreTask, clearCompleted, getCategoryById } = useTasks();

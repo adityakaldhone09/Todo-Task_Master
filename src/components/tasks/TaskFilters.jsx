@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, Filter, ArrowUpDown, X, RotateCcw } from 'lucide-react';
+import { Search, ArrowUpDown, X, RotateCcw } from 'lucide-react';
 import { STATUS_FILTERS, PRIORITIES, SORT_OPTIONS } from '../../utils/constants';
 
 export default function TaskFilters({

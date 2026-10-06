@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import { useTasks } from '../hooks/useTasks';
 import TaskCard from '../components/tasks/TaskCard';
 import EmptyState from '../components/common/EmptyState';
-import { getTodayDateString, getTomorrowDateString, getRelativeDateLabel } from '../utils/dateUtils';
+import { getTodayDateString, getRelativeDateLabel } from '../utils/dateUtils';
 import { Clock, Calendar } from 'lucide-react';
 
 export default function Upcoming() {

@@ -4,7 +4,6 @@ import Button from '../common/Button';
 import { TagBadge } from '../common/Badge';
 import { PRIORITIES, PRIORITY_CONFIG } from '../../utils/constants';
 import { getTodayDateString, getTomorrowDateString } from '../../utils/dateUtils';
-import { getCategoryIcon } from '../../utils/categoryIcons';
 import { Calendar, Clock, Bell, Tag, AlertCircle } from 'lucide-react';
 
 export default function TaskModal({

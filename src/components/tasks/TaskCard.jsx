@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PriorityBadge, CategoryBadge, TagBadge } from '../common/Badge';
 import { getRelativeDateLabel, formatTime, isOverdue } from '../../utils/dateUtils';
 import { getCategoryIcon } from '../../utils/categoryIcons';
@@ -20,14 +20,11 @@ export default function TaskCard({
   onDelete,
   onRestore = null,
 }) {
-  const [isHovered, setIsHovered] = useState(false);
   const overdue = isOverdue(task.dueDate, task.dueTime, task.completed);
   const dateLabel = getRelativeDateLabel(task.dueDate);
 
   return (
     <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       className={`group relative flex flex-col sm:flex-row sm:items-start justify-between p-4 sm:p-5 rounded-2xl border transition-all duration-200 ${
         task.completed
           ? 'bg-slate-50/70 dark:bg-dark-850/40 border-slate-200/60 dark:border-slate-800/60 opacity-80'

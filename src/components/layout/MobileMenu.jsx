@@ -12,6 +12,7 @@ import {
   Moon,
   Plus,
 } from 'lucide-react';
+import { isToday } from '../../utils/dateUtils';
 
 export default function MobileMenu({
   isOpen,
@@ -25,7 +26,7 @@ export default function MobileMenu({
   if (!isOpen) return null;
 
   const pendingCount = tasks.filter((t) => !t.completed).length;
-  const todayCount = tasks.filter((t) => !t.completed && t.dueDate === new Date().toISOString().slice(0, 10)).length;
+  const todayCount = tasks.filter((t) => !t.completed && isToday(t.dueDate)).length;
   const completedCount = tasks.filter((t) => t.completed).length;
 
   const navItems = [

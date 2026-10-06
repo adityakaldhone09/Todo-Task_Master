@@ -1,5 +1,5 @@
 import { PRIORITIES, PRIORITY_CONFIG, STATUS_FILTERS, SORT_OPTIONS } from './constants.js';
-import { isToday, isOverdue, getTodayDateString, getTomorrowDateString, getPast7Days } from './dateUtils.js';
+import { isOverdue, getTodayDateString, getTomorrowDateString, getPast7Days } from './dateUtils.js';
 
 /**
  * Filter tasks based on search query, status, priority, and category

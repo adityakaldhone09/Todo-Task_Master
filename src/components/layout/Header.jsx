@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Menu, Plus, Sun, Moon, Search } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -24,11 +24,13 @@ export default function Header({
   const title = pageTitles[location.pathname] || 'Productivity';
 
   // Format today's date for header
-  const todayFormatted = new Date().toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
-  });
+  const todayFormatted = useMemo(() => {
+    return new Date().toLocaleDateString('en-US', {
+      weekday: 'short',
+      month: 'short',
+      day: 'numeric',
+    });
+  }, []);
 
   return (
     <header className="h-16 bg-white/80 dark:bg-dark-900/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 sticky top-0 z-30 px-4 sm:px-6 flex items-center justify-between transition-colors">
