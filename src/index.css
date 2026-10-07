@@ -37,6 +37,50 @@
   }
   
   .glass-card-hover {
-    @apply transition-all duration-200 hover:shadow-card hover:border-slate-300 dark:hover:border-slate-700;
+    @apply transition-all duration-300 ease-out hover:shadow-card-hover hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-0.5;
+  }
+
+  .interactive-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-card-hover active:translate-y-0;
+  }
+
+  .glass-glow-brand {
+    box-shadow: 0 0 25px -4px rgba(53, 83, 235, 0.15), 0 8px 16px -4px rgba(53, 83, 235, 0.1);
+  }
+
+  .glass-glow-emerald {
+    box-shadow: 0 0 25px -4px rgba(16, 185, 129, 0.15), 0 8px 16px -4px rgba(16, 185, 129, 0.1);
+  }
+
+  .glass-glow-amber {
+    box-shadow: 0 0 25px -4px rgba(245, 158, 11, 0.15), 0 8px 16px -4px rgba(245, 158, 11, 0.1);
+  }
+
+  .glass-glow-rose {
+    box-shadow: 0 0 25px -4px rgba(244, 63, 94, 0.15), 0 8px 16px -4px rgba(244, 63, 94, 0.1);
+  }
+
+  .shimmer-gradient {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.25) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  .toast-progress-bar {
+    animation: toastProgressDrain linear forwards;
   }
 }
+
+@keyframes toastProgressDrain {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
