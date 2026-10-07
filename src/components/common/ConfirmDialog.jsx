@@ -18,7 +18,7 @@ export default function ConfirmDialog({
     <Modal isOpen={isOpen} onClose={onClose} title={title} maxWidth="max-w-md">
       <div className="space-y-4">
         <div className="flex items-start gap-3.5">
-          <div className={`p-2.5 rounded-xl shrink-0 ${isDestructive ? 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400' : 'bg-amber-50 dark:bg-amber-950/40 text-amber-600'}`}>
+          <div className={`p-2.5 rounded-xl shrink-0 transition-transform ${isDestructive ? 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 animate-wiggle' : 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 animate-pulse'}`}>
             {isDestructive ? <Trash2 className="w-5 h-5" /> : <AlertTriangle className="w-5 h-5" />}
           </div>
           <div>

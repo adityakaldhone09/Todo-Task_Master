@@ -31,14 +31,16 @@ export default function QuickAddTask({ onAdd, categories = [] }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`relative bg-white dark:bg-dark-800 border rounded-2xl shadow-subtle p-2.5 sm:p-3 transition-all duration-200 ${
+      className={`group relative bg-white dark:bg-dark-800 border rounded-2xl shadow-subtle p-2.5 sm:p-3 transition-all duration-300 ${
         isFocused
-          ? 'border-brand-500 ring-2 ring-brand-500/20 shadow-card'
+          ? 'border-brand-500 ring-4 ring-brand-500/15 shadow-glow-brand'
           : 'border-slate-200/80 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
       }`}
     >
       <div className="flex items-center gap-3">
-        <div className="w-8 h-8 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0">
+        <div className={`w-8 h-8 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center shrink-0 transition-transform duration-300 ${
+          isFocused ? 'rotate-12 scale-110' : ''
+        }`}>
           <Sparkles className="w-4 h-4" />
         </div>
 
@@ -57,7 +59,7 @@ export default function QuickAddTask({ onAdd, categories = [] }) {
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="hidden sm:block text-xs font-medium bg-slate-100 dark:bg-dark-700/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer"
+            className="hidden sm:block text-xs font-medium bg-slate-100 dark:bg-dark-700/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer hover:bg-slate-200/70 transition-colors"
           >
             {categories.map((c) => (
               <option key={c.id} value={c.id}>
@@ -70,7 +72,7 @@ export default function QuickAddTask({ onAdd, categories = [] }) {
           <select
             value={priority}
             onChange={(e) => setPriority(e.target.value)}
-            className="hidden sm:block text-xs font-medium bg-slate-100 dark:bg-dark-700/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer capitalize"
+            className="hidden sm:block text-xs font-medium bg-slate-100 dark:bg-dark-700/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer capitalize hover:bg-slate-200/70 transition-colors"
           >
             {Object.values(PRIORITIES).map((p) => (
               <option key={p} value={p}>
@@ -82,9 +84,9 @@ export default function QuickAddTask({ onAdd, categories = [] }) {
           <button
             type="submit"
             disabled={!title.trim()}
-            className="px-3 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-40 text-white text-xs font-semibold flex items-center gap-1 transition-all cursor-pointer"
+            className="px-3.5 py-1.5 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 disabled:opacity-40 text-white text-xs font-semibold flex items-center gap-1 shadow-xs hover:shadow transition-all duration-150 cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5" />
+            <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
             <span className="hidden sm:inline">Add</span>
           </button>
         </div>

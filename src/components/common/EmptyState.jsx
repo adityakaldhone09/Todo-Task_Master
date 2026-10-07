@@ -11,7 +11,7 @@ export default function EmptyState({
 }) {
   return (
     <div className="flex flex-col items-center justify-center text-center py-16 px-4">
-      <div className="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 ring-8 ring-brand-50/50 dark:ring-brand-950/20 shadow-sm animate-fade-in">
+      <div className="w-16 h-16 rounded-2xl bg-brand-50 dark:bg-brand-950/40 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-4 ring-8 ring-brand-50/50 dark:ring-brand-950/20 shadow-sm animate-gentle-float">
         <Icon className="w-8 h-8" />
       </div>
 

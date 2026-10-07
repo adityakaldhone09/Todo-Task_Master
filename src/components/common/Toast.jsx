@@ -26,21 +26,41 @@ export default function Toast({ toast, onDismiss }) {
     info: 'border-blue-500/20 dark:border-blue-500/30',
   };
 
+  const progressColors = {
+    success: 'bg-emerald-500',
+    error: 'bg-rose-500',
+    warning: 'bg-amber-500',
+    info: 'bg-brand-500',
+  };
+
   return (
     <div
       role="status"
       aria-live="polite"
-      className={`flex items-center gap-3 px-4 py-3 bg-white/95 dark:bg-dark-800/95 backdrop-blur-md rounded-xl shadow-lg border ${borders[type]} text-slate-800 dark:text-slate-100 text-sm font-medium animate-slide-down transition-all duration-200 pointer-events-auto min-w-[280px] max-w-md`}
+      className={`group relative flex items-center gap-3 px-4 pt-3.5 pb-4 bg-white/95 dark:bg-dark-800/95 backdrop-blur-md rounded-2xl shadow-card border ${borders[type]} text-slate-800 dark:text-slate-100 text-sm font-medium animate-pop-in transition-all duration-300 pointer-events-auto min-w-[280px] max-w-md overflow-hidden`}
     >
-      {icons[type] || icons.success}
-      <span className="flex-1">{message}</span>
+      <div className="shrink-0 transition-transform duration-200 group-hover:scale-110">
+        {icons[type] || icons.success}
+      </div>
+      <span className="flex-1 leading-snug">{message}</span>
       <button
+        type="button"
         onClick={() => onDismiss(id)}
-        className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-700/60 transition-colors"
+        className="p-1 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-700/60 transition-all duration-200 hover:rotate-90 active:scale-90 cursor-pointer"
         aria-label="Dismiss notification"
       >
         <X className="w-4 h-4" />
       </button>
+
+      {/* Dynamic Animated Duration Progress Bar */}
+      {duration > 0 && (
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-slate-100/60 dark:bg-dark-900/40 overflow-hidden">
+          <div
+            className={`h-full toast-progress-bar ${progressColors[type] || progressColors.success}`}
+            style={{ animationDuration: `${duration}ms` }}
+          />
+        </div>
+      )}
     </div>
   );
 }
