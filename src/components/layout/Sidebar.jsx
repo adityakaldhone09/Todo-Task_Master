@@ -74,12 +74,12 @@ export default function Sidebar({
     <aside className="w-64 bg-white dark:bg-dark-850 border-r border-slate-200/80 dark:border-slate-800 flex flex-col h-full shrink-0 select-none">
       {/* Brand Header */}
       <div className="p-5 flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80">
-        <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-sm">
+        <div className="flex items-center gap-2.5 group cursor-pointer">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 flex items-center justify-center text-white shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:shadow-glow-brand">
             <CheckSquare className="w-5 h-5 stroke-[2.5]" />
           </div>
           <div>
-            <h1 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight leading-none">
+            <h1 className="text-base font-extrabold text-slate-900 dark:text-white tracking-tight leading-none group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
               TaskFlow
             </h1>
             <span className="text-[11px] text-slate-400 font-medium">
@@ -92,14 +92,14 @@ export default function Sidebar({
         <button
           type="button"
           onClick={onToggleTheme}
-          className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-750 transition-colors cursor-pointer"
+          className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-750 transition-all duration-300 hover:rotate-45 active:scale-90 cursor-pointer"
           title={`Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`}
           aria-label="Toggle dark mode"
         >
           {theme === 'dark' ? (
-            <Sun className="w-4 h-4 text-amber-400" />
+            <Sun className="w-4 h-4 text-amber-400 animate-pop-in" />
           ) : (
-            <Moon className="w-4 h-4 text-slate-600" />
+            <Moon className="w-4 h-4 text-slate-600 animate-pop-in" />
           )}
         </button>
       </div>
@@ -109,7 +109,7 @@ export default function Sidebar({
         <button
           type="button"
           onClick={onOpenNewTaskModal}
-          className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white text-sm font-semibold shadow-sm hover:shadow transition-all cursor-pointer"
+          className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-[0.98] text-white text-sm font-semibold shadow-sm hover:shadow-glow-brand hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
         >
           <Plus className="w-4 h-4 stroke-[2.5]" />
           <span>New Task</span>
@@ -130,20 +130,20 @@ export default function Sidebar({
               to={item.to}
               end={item.to === '/'}
               className={({ isActive }) =>
-                `flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-all ${
+                `group flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                   isActive
-                    ? 'bg-brand-50 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 font-semibold'
+                    ? 'bg-brand-50 dark:bg-brand-950/50 text-brand-600 dark:text-brand-400 font-semibold shadow-xs'
                     : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-dark-800 hover:text-slate-900 dark:hover:text-white'
                 }`
               }
             >
-              <div className="flex items-center gap-2.5">
-                <Icon className="w-4 h-4 shrink-0" />
+              <div className="flex items-center gap-2.5 transition-transform duration-200 group-hover:translate-x-1">
+                <Icon className="w-4 h-4 shrink-0 transition-colors" />
                 <span>{item.label}</span>
               </div>
               {item.badge !== null && item.badge !== undefined && (
                 <span
-                  className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${
+                  className={`text-[11px] font-semibold px-2 py-0.5 rounded-full transition-transform duration-200 group-hover:scale-105 ${
                     item.badgeColor || 'bg-slate-100 dark:bg-dark-700 text-slate-600 dark:text-slate-400'
                   }`}
                 >

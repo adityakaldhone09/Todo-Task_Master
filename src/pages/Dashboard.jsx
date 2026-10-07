@@ -49,20 +49,22 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-8 animate-fade-in pb-12">
-      {/* Welcome Banner */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 rounded-3xl p-6 sm:p-8 text-white shadow-card relative overflow-hidden">
-        {/* Subtle decorative glow */}
-        <div className="absolute -right-8 -bottom-8 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Welcome Banner with Dynamic Light Mesh */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 rounded-3xl p-6 sm:p-8 text-white shadow-card relative overflow-hidden group">
+        {/* Animated decorative floating glowing orbs */}
+        <div className="absolute -right-8 -bottom-8 w-56 h-56 bg-white/15 rounded-full blur-2xl pointer-events-none animate-gentle-float" />
+        <div className="absolute top-0 right-1/3 w-36 h-36 bg-indigo-400/20 rounded-full blur-xl pointer-events-none animate-pulse-glow" />
+        <div className="absolute -left-10 -top-10 w-44 h-44 bg-brand-400/20 rounded-full blur-2xl pointer-events-none animate-pulse-glow" />
         
-        <div className="relative z-10 space-y-1.5">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-xs font-semibold text-white/95 mb-1">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+        <div className="relative z-10 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md text-xs font-semibold text-white/95 mb-1 border border-white/10 shadow-xs hover:bg-white/20 transition-colors">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
             <span>Productivity Dashboard</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
             {greeting}! Let's conquer today's goals.
           </h2>
-          <p className="text-sm text-brand-100 max-w-xl">
+          <p className="text-sm text-brand-100 max-w-xl leading-relaxed">
             You have <strong className="text-white font-bold">{stats.pending} pending tasks</strong> and{' '}
             <strong className="text-white font-bold">{stats.overdue} overdue</strong> requiring attention.
           </p>
@@ -72,9 +74,10 @@ export default function Dashboard() {
           <button
             type="button"
             onClick={onOpenNewTask}
-            className="px-5 py-2.5 rounded-xl bg-white text-brand-700 hover:bg-brand-50 active:bg-slate-100 font-bold text-sm shadow-md transition-all cursor-pointer inline-flex items-center gap-2"
+            className="px-5 py-2.5 rounded-xl bg-white text-brand-700 hover:bg-brand-50 active:scale-95 font-bold text-sm shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer inline-flex items-center gap-2"
           >
-            <span>+ Create Task</span>
+            <span className="text-base font-extrabold">+</span>
+            <span>Create Task</span>
           </button>
         </div>
       </div>

@@ -73,13 +73,13 @@ export default function Header({
         <button
           type="button"
           onClick={onToggleTheme}
-          className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-800 transition-colors cursor-pointer"
+          className="lg:hidden p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-800 transition-all duration-300 hover:rotate-45 active:scale-90 cursor-pointer"
           aria-label="Toggle dark mode"
         >
           {theme === 'dark' ? (
-            <Sun className="w-4 h-4 text-amber-400" />
+            <Sun className="w-4 h-4 text-amber-400 animate-pop-in" />
           ) : (
-            <Moon className="w-4 h-4 text-slate-600" />
+            <Moon className="w-4 h-4 text-slate-600 animate-pop-in" />
           )}
         </button>
 
@@ -87,7 +87,7 @@ export default function Header({
         <button
           type="button"
           onClick={onOpenNewTaskModal}
-          className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white text-xs sm:text-sm font-semibold shadow-sm transition-all cursor-pointer"
+          className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 active:scale-95 text-white text-xs sm:text-sm font-semibold shadow-sm hover:shadow-glow-brand hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
         >
           <Plus className="w-4 h-4 stroke-[2.5]" />
           <span>New Task</span>

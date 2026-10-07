@@ -94,27 +94,30 @@ export default function ProductivityChart({ productivity, completionRate }) {
           <span className="text-xs text-slate-400">Past 7 Days</span>
         </div>
 
-        <div className="space-y-2.5">
+        <div className="space-y-1.5">
           {weeklyActivity.map((item) => (
-            <div key={item.date} className="flex items-center gap-3 text-xs">
+            <div
+              key={item.date}
+              className="group/row flex items-center gap-3 text-xs px-2 py-1 rounded-xl hover:bg-slate-50 dark:hover:bg-dark-750/60 transition-all duration-200"
+            >
               <span
-                className={`w-9 font-semibold ${
+                className={`w-9 font-semibold transition-colors ${
                   item.isToday
-                    ? 'text-brand-600 dark:text-brand-400'
-                    : 'text-slate-500 dark:text-slate-400'
+                    ? 'text-brand-600 dark:text-brand-400 font-bold'
+                    : 'text-slate-500 dark:text-slate-400 group-hover/row:text-slate-700 dark:group-hover/row:text-slate-200'
                 }`}
               >
                 {item.day}
-                {item.isToday && <span className="ml-0.5 text-[9px]">•</span>}
+                {item.isToday && <span className="ml-0.5 text-[9px] animate-pulse">•</span>}
               </span>
 
               {/* Progress Bar Track */}
-              <div className="flex-1 bg-slate-100 dark:bg-dark-900/80 rounded-full h-3 p-0.5 relative overflow-hidden border border-slate-200/50 dark:border-slate-800">
+              <div className="flex-1 bg-slate-100 dark:bg-dark-900/80 rounded-full h-3 p-0.5 relative overflow-hidden border border-slate-200/50 dark:border-slate-800 transition-all duration-200 group-hover/row:h-3.5">
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${
                     item.isToday
-                      ? 'bg-gradient-to-r from-brand-600 to-indigo-500'
-                      : 'bg-gradient-to-r from-slate-400 to-slate-500 dark:from-slate-600 dark:to-slate-500'
+                      ? 'bg-gradient-to-r from-brand-600 to-indigo-500 shadow-glow-brand'
+                      : 'bg-gradient-to-r from-slate-400 to-slate-500 dark:from-slate-600 dark:to-slate-500 group-hover/row:from-brand-500 group-hover/row:to-indigo-400'
                   }`}
                   style={{ width: `${Math.max(item.percentage, item.completed > 0 ? 10 : 0)}%` }}
                 />
@@ -123,7 +126,7 @@ export default function ProductivityChart({ productivity, completionRate }) {
               {/* Completion % Label */}
               <div className="w-16 text-right font-medium">
                 {item.completed > 0 ? (
-                  <span className="text-slate-700 dark:text-slate-200">
+                  <span className="text-slate-700 dark:text-slate-200 group-hover/row:font-semibold">
                     {item.completed} done ({item.percentage}%)
                   </span>
                 ) : (

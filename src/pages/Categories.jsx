@@ -106,12 +106,12 @@ export default function Categories() {
           return (
             <div
               key={cat.id}
-              className="group relative bg-white dark:bg-dark-800 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-subtle hover:shadow-card hover:border-slate-300 dark:hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="group relative bg-white dark:bg-dark-800 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-subtle hover:shadow-card-hover hover:border-slate-300 dark:hover:border-slate-700 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shadow-xs"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shadow-xs transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
                     style={{ backgroundColor: `${cat.color}20`, color: cat.color }}
                   >
                     {getCategoryIcon(cat.icon, 'w-5 h-5')}
@@ -121,7 +121,7 @@ export default function Categories() {
                     <button
                       type="button"
                       onClick={() => openEditModal(cat)}
-                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-700/60 rounded-lg transition-colors cursor-pointer"
+                      className="p-1.5 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-700/60 rounded-lg transition-all duration-200 hover:scale-110 active:scale-90 cursor-pointer"
                       title="Edit category"
                     >
                       <Edit2 className="w-4 h-4" />
@@ -129,7 +129,7 @@ export default function Categories() {
                     <button
                       type="button"
                       onClick={() => setDeletingCategory(cat)}
-                      className="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg transition-colors cursor-pointer"
+                      className="p-1.5 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg transition-all duration-200 hover:scale-110 active:scale-90 cursor-pointer"
                       title="Delete category"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -240,11 +240,11 @@ export default function Categories() {
                     key={col.hex}
                     type="button"
                     onClick={() => setSelectedColor(col)}
-                    className="w-7 h-7 rounded-full flex items-center justify-center transition-transform hover:scale-110 cursor-pointer relative"
+                    className="w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-125 active:scale-90 cursor-pointer relative shadow-xs"
                     style={{ backgroundColor: col.hex }}
                     aria-label={`Select ${col.name} color`}
                   >
-                    {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3]" />}
+                    {isSelected && <Check className="w-3.5 h-3.5 text-white stroke-[3] animate-pop-in" />}
                   </button>
                 );
               })}

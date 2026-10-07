@@ -64,13 +64,13 @@ export default function MobileMenu({
             <button
               type="button"
               onClick={onToggleTheme}
-              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-750"
+              className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-dark-750 transition-all duration-300 hover:rotate-45 active:scale-90"
               aria-label="Toggle dark mode"
             >
               {theme === 'dark' ? (
-                <Sun className="w-4 h-4 text-amber-400" />
+                <Sun className="w-4 h-4 text-amber-400 animate-pop-in" />
               ) : (
-                <Moon className="w-4 h-4 text-slate-600" />
+                <Moon className="w-4 h-4 text-slate-600 animate-pop-in" />
               )}
             </button>
             <button
